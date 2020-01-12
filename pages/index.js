@@ -1,7 +1,5 @@
-const Index = () => (
+export default () => (
   <div>
-    <p>Hello Next.js Etty</p>
+    <p>Hello World!</p>
   </div>
 );
-
-export default Index;
