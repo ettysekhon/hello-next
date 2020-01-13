@@ -20,8 +20,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - name: Extract app env from git tag ref
-      run: tag=${GITHUB_REF/*tags\//} ; app_env=${tag#*@} ; echo "$app_env"
+    - name: Prepare Release
+      run: |
+        sh ./scripts/prepare-release.sh
     - name: npm install, build, and test
       run: |
         npm ci
