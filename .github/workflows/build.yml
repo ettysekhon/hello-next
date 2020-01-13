@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     tags:
-      - deploy-[a-f0-9]{40}@hpny-staging
+      - deploy-*@hpny-staging
 
 env:
   CI: true
