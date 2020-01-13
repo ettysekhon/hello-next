@@ -8,7 +8,8 @@
     "dev": "next",
     "export": "next export",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "./scripts/trigger-deploy.sh $1 $2"
   },
   "keywords": [],
   "author": "",
