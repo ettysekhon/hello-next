@@ -3,14 +3,14 @@ name: Build
 on:
   push:
     tags:
-      - deploy-[a-f0-9]{40}:\d{2}@hpny-staging
-      - deploy-[a-f0-9]{40}:\d{2}@hpny-test
-      - deploy-[a-f0-9]{40}:\d{2}@hpny-uat
-      - deploy-[a-f0-9]{40}:\d{2}@hpny-production
-      - deploy-[a-f0-9]{40}:\d{2}@hpsf-staging
-      - deploy-[a-f0-9]{40}:\d{2}@hpsf-test
-      - deploy-[a-f0-9]{40}:\d{2}@hpsf-uat
-      - deploy-[a-f0-9]{40}:\d{2}@hpsf-production
+      - deploy-[a-f0-9]{40}@hpny-staging
+      - deploy-[a-f0-9]{40}@hpny-test
+      - deploy-[a-f0-9]{40}@hpny-uat
+      - deploy-[a-f0-9]{40}@hpny-production
+      - deploy-[a-f0-9]{40}@hpsf-staging
+      - deploy-[a-f0-9]{40}@hpsf-test
+      - deploy-[a-f0-9]{40}@hpsf-uat
+      - deploy-[a-f0-9]{40}@hpsf-production
 
 env:
   CI: true
