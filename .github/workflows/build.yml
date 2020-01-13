@@ -4,10 +4,13 @@ on:
   push:
     tags:
       - deploy-*@hpny-staging
-
-env:
-  CI: true
-  NODE_VERSION: '12.x'
+      - deploy-*@hpny-test
+      - deploy-*@hpny-uat
+      - deploy-*@hpny-production
+      - deploy-*@hpsf-staging
+      - deploy-*@hpsf-test
+      - deploy-*@hpsf-uat
+      - deploy-*@hpsf-production
 
 jobs:
   build:
@@ -19,30 +22,6 @@ jobs:
         node-version: '12.x'
     - name: Extract app env from git tag ref
       run: tag=${GITHUB_REF/*tags\//} ; app_env=${tag#*@} ; echo "$app_env"
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
-    - name: Dump job context
-      env:
-        JOB_CONTEXT: ${{ toJson(job) }}
-      run: echo "$JOB_CONTEXT"
-    - name: Dump steps context
-      env:
-        STEPS_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEPS_CONTEXT"
-    - name: Dump runner context
-      env:
-        RUNNER_CONTEXT: ${{ toJson(runner) }}
-      run: echo "$RUNNER_CONTEXT"
-    - name: Dump strategy context
-      env:
-        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-      run: echo "$STRATEGY_CONTEXT"
-    - name: Dump matrix context
-      env:
-        MATRIX_CONTEXT: ${{ toJson(matrix) }}
-      run: echo "$MATRIX_CONTEXT"
     - name: npm install, build, and test
       run: |
         npm ci
