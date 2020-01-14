@@ -14,6 +14,7 @@ on:
 
 jobs:
   build:
+    if: github.event.base_ref == 'refs/heads/master' && contains(github.ref, github.sha)
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
