@@ -20,8 +20,10 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - name: Examine GIT_SHA
-      run: echo {{ env.GIT_SHA }}
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - name: Check env variables
       run: |
         env $(./scripts/set-env.sh) ./scripts/build.sh
