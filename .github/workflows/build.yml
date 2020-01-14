@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: '12.x'
     - name: Examine GIT_SHA
-      run: echo $GIT_SHA
+      run: echo {{ env.GIT_SHA }}
     - name: Check env variables
       run: |
         env $(./scripts/set-env.sh) ./scripts/build.sh
