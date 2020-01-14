@@ -2,12 +2,9 @@
 
 set -e
 
-GIT_SHA=$(git rev-parse HEAD)
-APP=$1
-ENV=$2
-TAG="deploy-$GIT_SHA@$APP-$ENV"
+GIT_SHA = git rev ...
+TAG=`deploy-$GITHUB_SHA@$APP_ENV`
 
-echo "pushing git tag: deploy-$GIT_SHA@$APP-$ENV"
-
-git tag $TAG
+deploy-${GIT_SHA}@hpny-uat
+git tag TAG
 git push --tags
