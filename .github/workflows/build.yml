@@ -21,6 +21,10 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+    - name: Dump environment variables
+      run: env | sort
+    - name: Dump GITHUB & RUNNER environment variables
+      run: env | egrep '^(GITHUB|RUNNER)_' | sort
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -35,3 +39,4 @@ jobs:
         npm test
       env:
         CI: true
+        GITHUB_EVENT_BASE_REF: ${{ github.event.base_ref }}
